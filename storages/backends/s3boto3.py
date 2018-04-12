@@ -85,7 +85,7 @@ class S3Boto3StorageFile(File):
     def _get_file(self):
         if self._file is None:
             self._file = SpooledTemporaryFile(
-                max_size=self._storage.max_memory_size,
+                max_size=int(self._storage.max_memory_size),
                 suffix=".S3Boto3StorageFile",
                 dir=setting("FILE_UPLOAD_TEMP_DIR", None)
             )
